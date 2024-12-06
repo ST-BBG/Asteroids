@@ -1,6 +1,10 @@
 import pygame
 pygame.init()
 from constants import *
+
+fps = pygame.time.Clock()
+dt = 0
+
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 def main():
@@ -15,6 +19,7 @@ def game_loop():
                 return
         pygame.Surface.fill(screen, (0, 0, 0))
         pygame.display.flip()
+        fps.tick(60)
     
 
 if __name__ == "__main__":
