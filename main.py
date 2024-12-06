@@ -15,6 +15,12 @@ def main():
     
 player = Player(SCREEN_WIDTH /2, SCREEN_HEIGHT /2)
 
+updatable = pygame.sprite.Group()
+drawable = pygame.sprite.Group()
+
+updatable.add(player)
+drawable.add(player)
+
 def game_loop():
     while True:
         for event in pygame.event.get():
@@ -22,10 +28,12 @@ def game_loop():
                 return
             
         pygame.Surface.fill(screen, (0, 0, 0))
-        player.draw(screen)
+        for drawy in drawable:
+            drawy.draw(screen)
         pygame.display.flip()
         dt = fps.tick(60) / 1000
-        player.update(dt)
+        for updaty in updatable:
+            updaty.update(dt)
 
 if __name__ == "__main__":
     main()
