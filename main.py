@@ -40,6 +40,11 @@ def game_loop():
         for drawables in drawable:
             drawables.draw(screen)
         pygame.display.flip()
+        for Asteroid in asteroids:
+            if Asteroid.collision(player):
+                print("Game over!")
+                import sys
+                raise sys.exit([0])
         
         
 
