@@ -46,6 +46,11 @@ def game_loop():
                 print("Game over!")
                 import sys
                 raise sys.exit([0])
+        for Shot in shots:
+            for Asteroid in asteroids:
+                if Shot.collision(Asteroid):
+                    Asteroid.kill()
+                    Shot.kill()
         
         
 

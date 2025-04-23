@@ -44,7 +44,6 @@ class Player(CircleShape):
             if self.reload_timer <= 0:
                 self.shoot(self.position.x, self.position.y, self.rotation)
                 self.reload_timer += PLAYER_SHOT_COOLDOWN
-            print(self.reload_timer)
 
     def shoot(self, launch_x, launch_y, direction):
         from shot import Shot
